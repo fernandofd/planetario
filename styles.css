@@ -143,6 +143,13 @@ body {
     animation: orbit-plutao 100000s linear infinite;
 }
 
+.src {
+    width: 260px;
+    height: 100px;
+    background-image: url('./src2.png' );
+    background-size: cover;
+    animation: orbit-src 5s linear infinite;
+}
 /* .moon {
     width: 12px; 
     height: 12px; 
@@ -246,12 +253,19 @@ body {
 
 
 
+
+
+
+
+
+
+
 .star {
     position: absolute;
     width: 2px;
     height: 2px;
     background-color: #fff;
-    animation-duration: 5s; /* Duração da animação */
+    animation-duration: 5s linear infinite, blink 1s alternate infinite;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     opacity: 0; /* Começar com opacidade 0 para um efeito de aparecimento gradual */
@@ -265,7 +279,7 @@ body {
     background-color: #fff;
     animation: star-fall 5s linear infinite, blink 1s alternate infinite;
     left: 10%; /* Posição horizontal aleatória */
-    top: 20%; /* Posição vertical aleatória */
+    top: 0%; /* Posição vertical aleatória */
 }
 
 .star2 {
@@ -275,7 +289,7 @@ body {
     background-color: #fff;
     animation: star-fall 5s linear infinite, blink 1s alternate infinite;
     left: 60%; /* Posição horizontal aleatória */
-    top: 50%; /* Posição vertical aleatória */
+    top: 0%; /* Posição vertical aleatória */
 }
 
 .star3 {
@@ -285,12 +299,36 @@ body {
     background-color: #fff;
     animation: star-fall 5s linear infinite, blink 1s alternate infinite;
     left: 80%; /* Posição horizontal aleatória */
+    top: 0%; /* Posição vertical aleatória */
+}
+
+.star4 {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: #fff;
+    animation: star-fall 10s linear infinite, blink 1s alternate infinite;
+    left: 30%; /* Posição horizontal aleatória */
     top: 70%; /* Posição vertical aleatória */
+}
+
+
+@keyframes orbit-src {
+    0% {
+        opacity: 1; /* Começar a aparecer */
+        transform: translateX(-1200px) translateY(-600px) rotate(30deg);
+    }
+    100% {
+        opacity: 0; /* Desaparecer no final da trajetória */
+        transform: translateX(calc(100vw + 10px)) translateY(calc(100vh + 10px)) rotate(-30deg);
+    }
+
+    
 }
 
 @keyframes star-fall {
     0% {
-        transform: translateY(-10vh);
+        transform: translateY(-100vh);
     }
     100% {
         transform: translateY(110vh);
@@ -309,14 +347,14 @@ body {
 
 .star.star1 {
     left: -10px; /* Inicialmente fora do lado esquerdo da tela */
-    top: 10px; /* Posição vertical */
+    top: 0px; /* Posição vertical */
     animation-name: star-fall-right; /* Nome da animação personalizada */
 }
 
 /* Estrelas cadentes da direita para a esquerda */
-.star.star2 {
+.star.star3.star4 {
     right: -10px; /* Inicialmente fora do lado direito da tela */
-    top: 30px; /* Posição vertical */
+    top: 0px; /* Posição vertical */
     animation-name: star-fall-left; /* Nome da animação personalizada */
 }
 
@@ -341,5 +379,31 @@ body {
     100% {
         opacity: 0; /* Desaparecer no final da trajetória */
         transform: translateX(-10px) translateY(calc(100vh + 10px)) rotate(360deg);
+    }
+}
+
+.comet {
+    position: absolute;
+    width: 2px;
+    height: 8px;
+    background-color: #fff;
+    animation: comet-fall 5s linear infinite, blink 1s alternate infinite; /* Animação de queda e piscar */
+}
+
+@keyframes comet-fall {
+    0% {
+        transform: translateY(-10vh);
+    }
+    100% {
+        transform: translateY(110vh);
+    }
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
     }
 }
