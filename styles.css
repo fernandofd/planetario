@@ -1,0 +1,345 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    
+    overflow: hidden;
+    background-image: url('./estrelar.avif');
+    background-size: cover; /* Para ajustar a imagem ao tamanho da janela */
+    background-repeat: no-repeat; /* Para evitar que a imagem seja repetida */
+}
+
+.container {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+ 
+}
+
+.planetarium {
+    position: relative;
+    width: 600px; /* Aumentando o tamanho do planetário para acomodar as órbitas */
+    height: 600px; /* Aumentando o tamanho do planetário para acomodar as órbitas */
+    border-radius: 50%;
+    animation: rotate 60s linear infinite;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
+.sun {
+    position: absolute;
+    text-align: center;
+    align-items: center;
+    
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-image: url('./sol.png');
+    background-size: cover;
+    z-index: 1;
+}
+
+.mercury, .venus, .earth, .mars, .jupiter, .saturn, .uranus, .neptune, .plutao {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: top;
+    border-radius: 100%;
+    animation-timing-function: linear;
+}
+
+/* Diminuir o raio das órbitas para os planetas */
+.mercury {
+    width: 35px;
+    height: 30px;
+   /* background-color: rgb(95, 15, 15); */
+   background-image: url('./mercurio.png');
+    background-size: cover;
+    
+    animation: orbit-mercury 3s linear infinite;
+}
+
+.venus {
+    width: 40px;
+    height: 40px;
+    background-image: url('./venus.png');
+    background-size: cover;
+    animation: orbit-venus 4s linear infinite;
+}
+
+.earth {
+    width: 37px;
+    height: 37px;
+    background-image: url('./terra.png');
+    background-size: cover;
+    animation: orbit-earth 5s linear infinite;
+}
+
+.mars {
+    width: 35px;
+    height: 30px;
+    background-image: url('./marte.png');
+    background-size: cover;
+    animation: orbit-mars 11s linear infinite;
+}
+
+.jupiter {
+    width: 94px;
+    height: 94px;
+    background-image: url('./jupter.png');
+    background-size: cover;
+    animation: orbit-jupiter 2100s linear infinite;
+}
+
+.saturn {
+    width: 150px;
+    height: 56px;
+    background-image: url('./saturno.png');
+    background-size: cover;
+    animation: orbit-saturn 30000s linear infinite;
+}
+
+/* .ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 8px;
+    background-color: #d1aa7d;
+    border-radius: 2px;
+} */
+
+.uranus {
+    width: 58px;
+    height: 58px;
+    background-image: url('./urano.png');
+    background-size: cover;
+    animation: orbit-uranus 10000s linear infinite;
+}
+
+.neptune {
+    width: 45px;
+    height: 45px;
+    background-image: url('./neturno.png');
+    background-size: cover;
+    animation: orbit-neptune 100000s linear infinite;
+}
+
+.plutao {
+    width: 25px;
+    height: 25px;
+    background-image: url('./plutao.png');
+    background-size: cover;
+    animation: orbit-plutao 100000s linear infinite;
+}
+
+/* .moon {
+    width: 12px; 
+    height: 12px; 
+    border-radius: 50%;
+    background-image: url('./lua.png');
+    background-size: cover;
+    position: absolute;
+    animation: orbit-moon 1s linear infinite;
+} */
+
+@keyframes rotate {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* Keyframes atualizados com os valores ajustados de translateY */
+@keyframes orbit-mercury {
+    0% {
+        transform: translate(-50%, -50%) rotate(45deg) translateX(120px) translateY(0);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(405deg) translateX(120px) translateY(0);
+    }
+}
+
+@keyframes orbit-venus {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg) translateX(150px) translateY(0);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg) translateX(150px) translateY(0);
+    }
+}
+
+@keyframes orbit-earth {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg) translateX(180px) translateY(0);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg) translateX(180px) translateY(0);
+    }
+}
+
+@keyframes orbit-mars {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg) translateX(210px) translateY(0);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg) translateX(210px) translateY(0);
+    }
+}
+
+@keyframes orbit-jupiter {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg) translateX(280px) translateY(0);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg) translateX(280px) translateY(0);
+    }
+}
+
+@keyframes orbit-saturn {
+    0% {
+        transform: translate(-50%, -50%) rotate(270deg) translateX(310px) translateY(0);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(630deg) translateX(310px) translateY(0);
+    }
+}
+
+@keyframes orbit-uranus {
+    0% {
+        transform: translate(-50%, -50%) rotate(90deg) translateX(420px) translateY(0);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(450deg) translateX(420px) translateY(0);
+    }
+}
+
+@keyframes orbit-neptune {
+    0% {
+        transform: translate(-50%, -50%) rotate(190deg) translateX(480px) translateY(0);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(550deg) translateX(480px) translateY(0);
+    }
+}
+
+@keyframes orbit-plutao {
+    0% {
+        transform: translate(-50%, -50%) rotate(20deg) translateX(600px) translateY(0);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(380deg) translateX(600px) translateY(0);
+    }
+}
+
+
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: #fff;
+    animation-duration: 5s; /* Duração da animação */
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    opacity: 0; /* Começar com opacidade 0 para um efeito de aparecimento gradual */
+}
+
+
+.star1 {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: #fff;
+    animation: star-fall 5s linear infinite, blink 1s alternate infinite;
+    left: 10%; /* Posição horizontal aleatória */
+    top: 20%; /* Posição vertical aleatória */
+}
+
+.star2 {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: #fff;
+    animation: star-fall 5s linear infinite, blink 1s alternate infinite;
+    left: 60%; /* Posição horizontal aleatória */
+    top: 50%; /* Posição vertical aleatória */
+}
+
+.star3 {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: #fff;
+    animation: star-fall 5s linear infinite, blink 1s alternate infinite;
+    left: 80%; /* Posição horizontal aleatória */
+    top: 70%; /* Posição vertical aleatória */
+}
+
+@keyframes star-fall {
+    0% {
+        transform: translateY(-10vh);
+    }
+    100% {
+        transform: translateY(110vh);
+    }
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
+.star.star1 {
+    left: -10px; /* Inicialmente fora do lado esquerdo da tela */
+    top: 10px; /* Posição vertical */
+    animation-name: star-fall-right; /* Nome da animação personalizada */
+}
+
+/* Estrelas cadentes da direita para a esquerda */
+.star.star2 {
+    right: -10px; /* Inicialmente fora do lado direito da tela */
+    top: 30px; /* Posição vertical */
+    animation-name: star-fall-left; /* Nome da animação personalizada */
+}
+
+/* Keyframes para estrelas cadentes da esquerda para a direita */
+@keyframes star-fall-right {
+    0% {
+        opacity: 1; /* Começar a aparecer */
+        transform: translateX(-10px) translateY(-10px) rotate(0deg);
+    }
+    100% {
+        opacity: 0; /* Desaparecer no final da trajetória */
+        transform: translateX(calc(100vw + 10px)) translateY(calc(100vh + 10px)) rotate(360deg);
+    }
+}
+
+/* Keyframes para estrelas cadentes da direita para a esquerda */
+@keyframes star-fall-left {
+    0% {
+        opacity: 1; /* Começar a aparecer */
+        transform: translateX(calc(100vw + 10px)) translateY(-10px) rotate(0deg);
+    }
+    100% {
+        opacity: 0; /* Desaparecer no final da trajetória */
+        transform: translateX(-10px) translateY(calc(100vh + 10px)) rotate(360deg);
+    }
+}
