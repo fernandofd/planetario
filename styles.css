@@ -23,9 +23,15 @@ body {
 
 .planetarium {
     position: relative;
-    width: 600px; /* Aumentando o tamanho do planetário para acomodar as órbitas */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 650px; /* Aumentando o tamanho do planetário para acomodar as órbitas */
     height: 600px; /* Aumentando o tamanho do planetário para acomodar as órbitas */
     border-radius: 50%;
+    background-position-x: 0;
+    background-position-y: 0;
     animation: rotate 60s linear infinite;
     transform: translate(-50%, -50%);
     top: 50%;
@@ -34,22 +40,25 @@ body {
 
 .sun {
     position: absolute;
-    text-align: center;
-    align-items: center;
+   
     
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%)  translateY(0)  translateX(0);
     width: 250px;
     height: 250px;
     border-radius: 50%;
     background-image: url('./sol.png');
     background-size: cover;
+    background-position-x: 0;
+    background-position-y: 0;
     z-index: 1;
 }
 
 .mercury, .venus, .earth, .mars, .jupiter, .saturn, .uranus, .neptune, .plutao {
     position: absolute;
+    background-position-x: 0;
+    background-position-y: 0;
     top: 50%;
     left: 50%;
     transform-origin: top;
@@ -59,11 +68,16 @@ body {
 
 /* Diminuir o raio das órbitas para os planetas */
 .mercury {
-    width: 35px;
-    height: 30px;
-   /* background-color: rgb(95, 15, 15); */
-   background-image: url('./mercurio.png');
-    background-size: cover;
+    
+    width: 20px;
+    height:20px;
+    background: radial-gradient(circle, rgb(230, 129, 129) 0%, rgba(0, 0, 0, 1) 100%);
+
+   background-size: 20px 20px;
+   background-repeat: no-repeat;
+   background-position-x: 0;
+    background-position-y: 0;
+  
     
     animation: orbit-mercury 3s linear infinite;
 }
@@ -101,30 +115,22 @@ body {
 }
 
 .saturn {
-    width: 150px;
-    height: 56px;
+    width: 180px;
+    height: 90px;
     background-image: url('./saturno.png');
-    background-size: cover;
-    animation: orbit-saturn 30000s linear infinite;
+    background-size: 120px 60px;
+    background-repeat: no-repeat;
+    animation: orbit-saturn 3000s linear infinite;
 }
 
-/* .ring {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80px;
-    height: 8px;
-    background-color: #d1aa7d;
-    border-radius: 2px;
-} */
+
 
 .uranus {
     width: 58px;
     height: 58px;
     background-image: url('./urano.png');
     background-size: cover;
-    animation: orbit-uranus 10000s linear infinite;
+    animation: orbit-uranus 3500s linear infinite;
 }
 
 .neptune {
@@ -132,7 +138,7 @@ body {
     height: 45px;
     background-image: url('./neturno.png');
     background-size: cover;
-    animation: orbit-neptune 100000s linear infinite;
+    animation: orbit-neptune 3800s linear infinite;
 }
 
 .plutao {
@@ -140,114 +146,140 @@ body {
     height: 25px;
     background-image: url('./plutao.png');
     background-size: cover;
-    animation: orbit-plutao 100000s linear infinite;
+    animation: orbit-plutao 4000s linear infinite;
 }
 
 .src {
     width: 260px;
     height: 100px;
     background-image: url('./src2.png' );
-    background-size: cover;
-    animation: orbit-src 5s linear infinite;
+    background-size: 50% 35%;
+   background-repeat: no-repeat;
+    animation: orbit-src 20s linear infinite;
 }
-/* .moon {
-    width: 12px; 
-    height: 12px; 
-    border-radius: 50%;
-    background-image: url('./lua.png');
-    background-size: cover;
-    position: absolute;
-    animation: orbit-moon 1s linear infinite;
-} */
+
 
 @keyframes rotate {
     0% {
-        transform: translate(-50%, -50%) rotate(0deg);
+        background-position-x: 0;
+        background-position-y: 0;
+        transform: translate(-50%, -50%) translateY(0) translateX(0) rotate(0deg);
     }
     100% {
-        transform: translate(-50%, -50%) rotate(360deg);
+        background-position-x: 0;
+        background-position-y: 0;
+        transform: translate(-50%, -50%)  translateY(0) translateX(0) rotate(360deg);
     }
 }
 
 /* Keyframes atualizados com os valores ajustados de translateY */
 @keyframes orbit-mercury {
     0% {
+        background-position-x: 0;
+        background-position-y: 0;
         transform: translate(-50%, -50%) rotate(45deg) translateX(120px) translateY(0);
     }
     100% {
+        background-position-x: 0;
+        background-position-y: 0;
         transform: translate(-50%, -50%) rotate(405deg) translateX(120px) translateY(0);
     }
 }
 
 @keyframes orbit-venus {
     0% {
-        transform: translate(-50%, -50%) rotate(0deg) translateX(150px) translateY(0);
+        background-position-x: 0;
+        background-position-y: 0;
+        transform: translate(-50%, -50%) rotate(0deg) translateX(130px) translateY(0);
     }
     100% {
-        transform: translate(-50%, -50%) rotate(360deg) translateX(150px) translateY(0);
+        background-position-x: 0;
+        background-position-y: 0;
+        transform: translate(-50%, -50%) rotate(360deg) translateX(130px) translateY(0);
     }
 }
 
 @keyframes orbit-earth {
     0% {
-        transform: translate(-50%, -50%) rotate(0deg) translateX(180px) translateY(0);
+        background-position-x: 0;
+        background-position-y: 0;
+        transform: translate(-50%, -50%) rotate(0deg) translateX(160px) translateY(0);
     }
     100% {
-        transform: translate(-50%, -50%) rotate(360deg) translateX(180px) translateY(0);
+        background-position-x: 0;
+        background-position-y: 0;
+        transform: translate(-50%, -50%) rotate(360deg) translateX(160px) translateY(0);
     }
 }
 
 @keyframes orbit-mars {
     0% {
-        transform: translate(-50%, -50%) rotate(0deg) translateX(210px) translateY(0);
+        background-position-x: 0;
+        background-position-y: 0;
+        transform: translate(-50%, -50%) rotate(0deg) translateX(180px) translateY(0);
     }
     100% {
-        transform: translate(-50%, -50%) rotate(360deg) translateX(210px) translateY(0);
+        background-position-x: 0;
+        background-position-y: 0;
+        transform: translate(-50%, -50%) rotate(360deg) translateX(180px) translateY(0);
     }
 }
 
 @keyframes orbit-jupiter {
+    
     0% {
-        transform: translate(-50%, -50%) rotate(0deg) translateX(280px) translateY(0);
+        background-position-x: 0;
+        background-position-y: 0;
+        transform: translate(-50%, -50%) rotate(0deg) translateX(220px) translateY(0);
     }
     100% {
-        transform: translate(-50%, -50%) rotate(360deg) translateX(280px) translateY(0);
+        background-position-x: 0;
+        background-position-y: 0;
+        transform: translate(-50%, -50%) rotate(360deg) translateX(220px) translateY(0);
     }
 }
 
 @keyframes orbit-saturn {
     0% {
-        transform: translate(-50%, -50%) rotate(270deg) translateX(310px) translateY(0);
+        background-position-x: 0;
+        background-position-y: 0;
+        transform: translate(-50%, -50%) rotate(270deg) translateX(250px) translateY(0);
     }
     100% {
-        transform: translate(-50%, -50%) rotate(630deg) translateX(310px) translateY(0);
+        background-position-x: 0;
+        background-position-y: 0;
+        transform: translate(-50%, -50%) rotate(630deg) translateX(250px) translateY(0);
     }
 }
 
 @keyframes orbit-uranus {
     0% {
-        transform: translate(-50%, -50%) rotate(90deg) translateX(420px) translateY(0);
+        background-position-x: 0;
+        background-position-y: 0;
+        transform: translate(-50%, -50%)  rotate(90deg) translateX(280px) translateY(0);
     }
     100% {
-        transform: translate(-50%, -50%) rotate(450deg) translateX(420px) translateY(0);
+        background-position-x: 0;
+        background-position-y: 0;
+        transform: translate(-50%, -50%) rotate(450deg) translateX(280px) translateY(0);
     }
 }
 
 @keyframes orbit-neptune {
     0% {
-        transform: translate(-50%, -50%) rotate(190deg) translateX(480px) translateY(0);
+        transform: translate(-50%, -50%) rotate(190deg) translateX(310px) translateY(0);
     }
     100% {
-        transform: translate(-50%, -50%) rotate(550deg) translateX(480px) translateY(0);
+        transform: translate(-50%, -50%) rotate(550deg) translateX(310px) translateY(0);
     }
 }
 
 @keyframes orbit-plutao {
     0% {
-        transform: translate(-50%, -50%) rotate(20deg) translateX(600px) translateY(0);
+        transform: translate(-50%, -50%) rotate(20deg) translateX(340px) translateY(0);
     }
     100% {
-        transform: translate(-50%, -50%) rotate(380deg) translateX(600px) translateY(0);
+        transform: translate(-50%, -50%) rotate(380deg) translateX(340px) translateY(0);
     }
 }
 
@@ -320,7 +352,7 @@ body {
     }
     100% {
         opacity: 0; /* Desaparecer no final da trajetória */
-        transform: translateX(calc(100vw + 10px)) translateY(calc(100vh + 10px)) rotate(-30deg);
+        transform: translateX(calc(100vw + 1px)) translateY(calc(100vh + 1px)) rotate(-30deg);
     }
 
     
